@@ -19,6 +19,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "blahblah",
+  database: "nodemysql",
 });
 
 // connec to database
