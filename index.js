@@ -39,6 +39,20 @@ app.get("/addpost1", (req, res) => {
   });
 });
 
+// insert post 2
+app.get("/addpost2", (req, res) => {
+  let post = {
+    title: "Post Two",
+    body: "This is post number two",
+  };
+  let sql = "INSERT INTO posts set ?";
+  let query = db.query(sql, post, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.send("Post 2 added...");
+  });
+});
+
 // create connection to mysql
 const db = mysql.createConnection({
   host: "localhost",
