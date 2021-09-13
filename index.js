@@ -25,6 +25,20 @@ app.get("/createpoststable", (req, res) => {
   });
 });
 
+// insert post 1
+app.get("/addpost1", (req, res) => {
+  let post = {
+    title: "Post One",
+    body: "This is post number one",
+  };
+  let sql = "INSERT INTO posts set ?";
+  let query = db.query(sql, post, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.send("Post 1 added...");
+  });
+});
+
 // create connection to mysql
 const db = mysql.createConnection({
   host: "localhost",
